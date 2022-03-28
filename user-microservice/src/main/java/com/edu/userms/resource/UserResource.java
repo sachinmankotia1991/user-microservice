@@ -35,8 +35,8 @@ public class UserResource {
 	}
 
 	@GetMapping("/user/{userid}")
-	public ResponseEntity<User> getAllUsers(@PathVariable("userid") int id) {
-		LOG.info("inside getAllUsers method");
+	public ResponseEntity<User> getUserById(@PathVariable("userid") int id) {
+		LOG.info("inside getUserById method");
 		return new ResponseEntity<User>(repo.getById(id), HttpStatus.OK);
 	}
 

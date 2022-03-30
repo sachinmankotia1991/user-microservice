@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,6 +22,8 @@ public class User {
 	private String userName;
 	private String password;
 	private String city;
+	@Transient
+	private Order orderInfo;
 
 	public Integer getId() {
 		return id;
@@ -70,10 +73,18 @@ public class User {
 		this.city = city;
 	}
 
+	public Order getOrderInfo() {
+		return orderInfo;
+	}
+
+	public void setOrderInfo(Order orderInfo) {
+		this.orderInfo = orderInfo;
+	}
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName
-				+ ", password=" + password + ", city=" + city + "]";
+				+ ", password=" + password + ", city=" + city + ", orderInfo=" + orderInfo + "]";
 	}
 
 }
